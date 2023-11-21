@@ -32,6 +32,42 @@
   flex: 1;
 }
 
+.project-box {
+  width: calc(33.33% - 20px); /* Adjust the width as needed */
+  margin: 10px; /* Adjust the margin as needed */
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 15%;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+.project-img {
+  width: 40px; /* Adjust the width of the image as needed */
+}
+
+.project-deployed-img {
+  text-align: center;
+}
+
+.project-deployed-img img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+.project-deployed-img p {
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
 @media only screen and (max-width: 400px) {
   .contact-container {
     flex-direction: column;
