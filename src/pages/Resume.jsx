@@ -2,7 +2,7 @@ export default function ResumePage() {
     return (
         <div>
             <h2>Resume</h2>
-            <a href="https://drive.google.com/file/d/1-po5zNC-fxWqUT8uPuVBzS0F6L8uXQin/view?usp=sharing">
+            <a href="../src/assets/Cameron-Rawlins.pdf" download="cameron-resume.pdf">
                 A download link to my resume!
             </a>
             <div>
