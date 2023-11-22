@@ -1,4 +1,30 @@
+import { useState } from "react"
+
 export default function ContactPage() {
+    const [alertMessage, setAlertMessage] = useState('')
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        const name = document.getElementById('name')
+        const email = document.getElementById('email')
+        const message = document.getElementById('message')
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(email.value)) {
+            setAlertMessage('Please enter a valid email address!')
+            return
+        }
+
+        if (name.value.trim() === '' || email.value.trim() === '' || message.value.trim() === '') {
+            setAlertMessage('Please fill out all fields...')
+            return
+        } else {
+            setAlertMessage('')
+            return
+        }
+    }
+
     return (
         <>  
             <div className="contact-container">
@@ -12,24 +38,30 @@ export default function ContactPage() {
 
                 <div className="contact-section">
                     <h3>Message Me Directly!</h3>
-                    <form action="/submit-form" method="post">
+                    <form onSubmit={handleSubmit}>
                         <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" name="name" required></input>
+                        <input type="text" id="name" name="name" />
 
-                        <br></br>
+                        <br />
 
                         <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" name="email" required></input>
+                        <input type="email" id="email" name="email" />
 
-                        <br></br>
+                        <br />
 
                         <label htmlFor="message">Message:</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <textarea id="message" name="message" rows="4"></textarea>
 
-                        <br></br>
+                        <br />
 
                         <button type="submit">Submit</button>
                     </form>
+
+                    {alertMessage && (
+                        <div className="alert-message">
+                            <p>{alertMessage}</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </>
